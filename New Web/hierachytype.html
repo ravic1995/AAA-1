@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="hierachy.css">
+<title>Hierarchy Sample</title>
+	<script type='text/javascript' src='jquery.min.js'></script>
+	<script type='text/javascript' src='jquery-ui.min.js'></script>
+	<script src="Styles/jquery.jsPlumb-1.5.5-min.js"></script>
+</head>
+<body>
+	<div style="width: 100%;">
+		<div id="viewer">
+			<div id="images">
+				<img style="width: 100%; height: 30%;"id="pictures"/>
+				<br />
+			</div>
+		</div>
+		<ul id ="hierarchy" class="stuff">
+			<li><span class = "position" id = "president">President</span></li>
+			<br/>
+			<br/>
+			<li><span class = "position"  style="float: right;" id = "secretary">Secretary</span></li>
+			<br/>
+			<br/>
+			<li>
+			<div id="councheads">
+				<ul class="stuff">
+				<li><span class = "position" id = "events">Events Head</span></li>
+				<li><span class = "position" id = "techhead">Tech Head</span></li>
+				<li><span class = "position" id = "treasure">Treasurer</span></li>
+				<li><span class = "position" id = "committee">Committee Heads</span></li>
+				<div id="commheads" style="visibility:hidden;">
+				<br/>
+				<br/>				
+					<ul class="stuff">
+					<li><span class = "position" id = "head-1">Jehan</span></li>
+					<li><span class = "position" id = "head-2">Rushabh</span></li>
+					<li><span class = "position" id = "head-3">Pranay</span></li>
+					<li><span class = "position" id = "head-4">Armaan</span></li>
+				</ul>
+			</div>
+				</ul>
+			</div>
+			</li>
+		</ul>
+	</div>	<br/><br/>	
+<script type='text/javascript'> 
+	var instanceX;
+	jsPlumb.ready(function() {  	
+			var color = "gray";
+			var instance = jsPlumb.getInstance({
+				// notice the 'curviness' argument to this Bezier curve.  the curves on this page are far smoother
+				// than the curves on the first demo, which use the default curviness value.			
+				Connector : [ "Flowchart"],
+				PaintStyle : { strokeStyle:color, lineWidth:2 },
+				EndpointStyle : { radius:1, fillStyle:'transparent' },
+				HoverPaintStyle : {strokeStyle:"#ec9f2e" },
+				EndpointHoverStyle : {fillStyle:"#ec9f2e" },
+				Container:"viewer"
+			});
+				
+			// suspend drawing and initialise.
+			instance.doWhileSuspended(function() {		
+				// declare some common values:
+				var arrowCommon = { foldback:0.7, fillStyle:color, width:14 },
+					// use three-arg spec to create two different arrows with the common values:
+					overlays = [
+						[ "Arrow", { location:0.7 }, arrowCommon ],
+						[ "Arrow", { location:0.3, direction:-1 }, arrowCommon ]
+					];
+
+				// add endpoints, giving them a UUID.
+				// you DO NOT NEED to use this method. You can use your library's selector method.
+				// the jsPlumb demos use it so that the code can be shared between all three libraries.
+				var windows = jsPlumb.getSelector(".position");
+				for (var i = 0; i < windows.length; i++) {
+					instance.addEndpoint(windows[i], {
+						uuid:windows[i].getAttribute("id") + "-bottom",
+						anchor:"Bottom",
+						maxConnections:-1
+					});
+					instance.addEndpoint(windows[i], {
+						uuid:windows[i].getAttribute("id") + "-top",
+						anchor:"Top",
+						maxConnections:-1
+					});
+				}
+				
+				instance.connect({uuids:["president-bottom", "events-top" ]});
+				instance.connect({uuids:["president-bottom", "techhead-top" ]});
+				instance.connect({uuids:["president-bottom", "treasure-top" ]});
+				instance.connect({uuids:["president-bottom", "committee-top" ]});
+				instance.connect({uuids:["president-bottom", "secretary-top" ]});
+				instanceXX = instance;				
+			});
+	});
+	var isOpen = false;
+	$("#hierarchy").bind('click', $.proxy(function (event) {
+
+		jQuery.fn.exists = function(){return this.length>0;}
+		var status = $(event.target).attr('id');
+		//If the committee heads is clicked to expand or not
+		if(status == 'committee'){
+			if(isOpen){
+				document.getElementById("commheads").style.visibility="hidden";
+				for(var i = 1; i < 5; i++){
+					instanceXX.deleteEndpoint('head-' + i + '-top');
+				}
+			} else {
+				document.getElementById("commheads").style.visibility="visible";
+				for(var i = 1; i < 5; i++){
+					instanceXX.addEndpoint("head-" + i, {
+						uuid:"head-" + i + "-top",
+						anchor:"Top",
+						maxConnections:-1
+					});					
+					instanceXX.connect({uuids:["committee-bottom", "head-" + i + "-top" ]});
+				}
+			}
+			isOpen = !isOpen;
+			//if any other is clicked
+		} else  if (!(status == 'hierarchy')&&!(status == 'commheads')){
+			if ($("#text").exists()) {
+				var div = document.getElementById("text");
+				div.parentNode.removeChild(div);
+			}
+			var name ={};
+			name["president"] = "Mr. Yash Bhansali"; 
+			name["events"] = "Ms. Asesha Dayal";
+			name["secretary"] = "Ms. Shreya Parikh";
+			name["techhead"] = "Mr. Mahir Kothary";
+			name["treasure"] = "Ms. Kinjal Mehta"; 
+			name["head-1"] = "Mr. Jehan Vidhani";
+			name["head-2"] = "Mr. Rushabh Mehta"; 
+			name["head-3"] = "Mr. Pranay Mehta"; 
+			name["head-4"] = "Mr. Armaan Tejani";
+			document.getElementById("pictures").src="/images/council/"+status+".png";
+			$("<div />", {
+				"id": "text",
+				"style": "text-align: left; color: #FFF; font-size: 13px; font-family:Arial; font-weight: bold;",
+				html: name[status],
+			}).hide().appendTo("#images").fadeIn();
+			$("<br />", {
+			}).appendTo("#text");
+			$("<br />", {
+			}).appendTo("#text");					
+			$("<div />", {
+				"id": "descript",
+				"style": "text-align: left; color: #FFF; font-size: 13px; font-family:Arial; font-weight: none;",
+				html: "HELLO",
+			}).hide().appendTo("#text").fadeIn();
+		}
+	}));
+	</script>
+</body>
+</html>

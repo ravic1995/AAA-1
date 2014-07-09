@@ -1,0 +1,46 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Upload Data</title>
+  <link rel="stylesheet" href="Styles/main.css">
+  <link rel="shortcut icon" href="Images/logo.png" />
+  <script type="text/javascript" src="Styles/jquery.min.js"></script>
+  <script type="text/javascript" src="Styles/parse-1.2.16.min.js">
+  </script>
+</head>
+
+<body>
+
+	<a href = "http://www.abwaalumni.com" target = "_abwa"><img class = "smallify" src = "Images/logo.png"/></a>
+  
+  <form action = "post.php" method = "post" name="uploadData">
+    <table >
+	
+	<tr>
+	
+	<td style = "padding: 10px;"><br/>Name:</td>
+	<td style = "padding: 10px;"><br/><input type="text" name="cf_name1" required></td>
+	</tr>
+	<tr style = "padding: 10px;">
+	<td style = "padding: 10px;"><br/>Topic: </td>
+	<td style = "padding: 10px;"><br/><input type="text" name="cf_topic" required></td>
+	</tr>
+	<tr >
+	<td style = "padding: 10px;"><br/>Details:</td>
+	<td style = "padding: 10px;"><br/><textarea name="cf_message" class = "message" required></textarea></td>
+	</tr>
+	</table>
+	<br/>
+   	<br/>
+	<tr>
+    <input type="submit" class="buttonStyle" value="Send"/>
+    <input type="reset" class="buttonStyle" value="Clear"/>
+	</tr>
+</form>
+
+
+
+</body>
+
+</html>
