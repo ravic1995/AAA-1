@@ -37,8 +37,15 @@
                             <li>Dinner 2012</li>
                         </ul>
                     </li>
-                    <li class="selected">School Events</li>
-                    <li onclick="loadPics('graduation 2013')" type="last">Graduation</li>
+                    <li>School Events</li>
+                    <li type="last">
+                        Graduation
+                        <ul id="submenu">
+                            <li onclick="loadPics('graduation 2014')">Class of 2014</li>
+                            <li onclick="loadPics('graduation 2013')">Class of 2013</li>
+                            <li onclick="loadPics('graduation 2012')">Class of 2012</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div id="gallery" class="box">

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <title>AAA | Contact Us</title>
+        <link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+        <link rel="icon" href="../images/transparent.png">
+    </head>
+    <body>
+        <div id="topbar">
+            <div id="lefttop">
+                <img src="../images/logo.png" alt="AAA"/>
+                <span name="title">ABWA Alumni Association</span>
+            </div>
+            <div id="righttop">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/gallery/">GALLERY</a></li>
+                    <li><a href="/news/">NEWS</a></li>
+                    <li><a href="/about/">ABOUT AAA</a></li>
+                    <li><a href="/mentorship/">MENTORSHIP</a></li>
+                    <li class="selected"><a href="/contact-us/">CONTACT US</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="main" class="contact">
+            <div class="box" style="width: 65%; margin-right: 4%;">
+                    <form action = "contact.php" method = "post" name="ContactUs" id="forms" onsubmit="return check(ContactUs)">
+                        <label>Name:*</label>
+                        <input type="text" name="cf_name" required>
+                        <label>Email:*</label>
+                        <input type="text" name="cf_email" required>
+                        <label>Topic:*</label>
+                        <input type="text" name="cf_topic" required>
+                        <label>Details:*</label>
+                        <textarea name="cf_message" class = "message" required></textarea>
+                        <br>
+                        <input type="submit" class="button" value="Send"/>
+                        <input type="reset" class="button"value="Clear"/>
+                    </form>
+                </div>
+                <div class="box">
+                    <heading>Contact Details</heading>
+                    <br>
+                    <p id="contactdetails">Mahir Kothary<br>
+                    #1-107 Kelsey Apartments<br>
+                    4233 9th Ave NE, <br>
+                    U-District,<br>
+                    Seattle,<br>
+                    WA - 98105<br><hr>
+                    Email ID: info@abwaalumni.com</p>
+                </div>
+        </div>
+    </body>
+</html>

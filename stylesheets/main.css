@@ -1,3 +1,13 @@
+/************************************************
+
+Copyright 2014 Intelfinity Web Service
+
+Developer: Mahir Kothary GH: (@mahirk)
+
+MIT License
+
+************************************************/
+
 body {
     width: 99%;
     background-image: url('http://subtlepatterns.com/patterns/cream_pixels.png');
@@ -20,6 +30,7 @@ Top Menu
     width: 100%;
     display:block;
     height: 200px;
+    position:static;
 }
 
 #lefttop{
@@ -46,7 +57,7 @@ Top Menu
 
 #righttop{
     float: right;
-    margin-right: 5%;
+    margin-right: 5% !important;
     font-weight: bold;
     font-family: calibri;
     line-height:22px;
@@ -141,7 +152,8 @@ Main
 }
 
 #menu #mmenu li:hover {
-    background-color: #333;
+    background-color: #C31B1B;
+    color:#fff;
 }
 
 #menu #mmenu li:not([type="last"]):after {
@@ -171,6 +183,8 @@ Main
     z-index:99 !important;
     padding:10px 0 0 0 !important;
     background-color: #fff;
+    -webkit-border-bottom-left-radius: 5px;
+    border: 2px solid #333;
 }
 
 #menu #mmenu li:hover #submenu,
@@ -207,20 +221,23 @@ Gallery Styles
     font-family: Calibri;
     position: relative;
     overflow: hidden;
-    display: block;
-    float: left;
-    margin: 0 10px 10px 0;
+    display: inline-block;
+    margin: 10px;
     padding: 0;
-    background-color: #eee;
-    box-shadow: inset 0 0 1px #ffc;
     width: 200px;
     height: 200px;
     vertical-align: baseline;
+    -webkit-border-radius: 4%;
+    border:2px solid #333;
 }
 
 #gallery  .data {
     display:none;
     vertical-align: bottom;
+}
+
+#gallery .block:hover {
+    border:2px solid #333;
 }
 
 #gallery .block:hover .data {
@@ -234,10 +251,83 @@ Gallery Styles
     width: 190px;
     height: inherit;
     max-height: 50px;
-    padding-left: 10px;
+    padding: 10px;
     font-size: 18px;
     max-width: 190px;
     text-align: left;
 }
 
+#gallery .tile {
+    float:right;
+    position:relative;
+    display:inline-block;
+}
+
+/******************************************
+Forms
+*******************************************/
+
+label {
+    display: block;
+    text-align: left;
+    padding: 15px 0 15px 0;
+    font-family:'Raleway', calibri;
+    font-size: 11pt;
+}
+
+#forms {
+    padding: 30px;
+}
+input[type="text"]   {
+    width:50%;
+    display:block;
+    border: 1px solid #999;
+    height: 20px;
+    padding: 10px;
+    -webkit-border-radius: 4px;
+}
+
+input:not([type="text"]) {
+    width:20%;
+    font-size: 9pt;
+    display:inline-block;
+    height: 35px;
+    padding: 10px;
+    -webkit-border-radius: 4px;
+}
+
+.message {
+    width:75%;
+    display:block;
+    border: 1px solid #999;
+    height: 200px;
+    -webkit-border-radius: 4px;
+    padding: 10px;
+}
+textarea:focus, input:focus {
+    border: 1px solid #09C;
+    -webkit-border-radius: 4px;
+}
+#forms td {
+    width: 10%;
+    vertical-align:top;
+}
+
+.contact .box{
+    margin: 20px 0 60px 0;
+    display:inline-block;
+    width:24%;
+    font-size: 13px;
+    vertical-align:top;
+    cursor:pointer;
+}
+
+.contact {
+    width: 90%;
+}
+
+#contactdetails{
+    text-align:left;
+    padding: 10px;
+}
 
