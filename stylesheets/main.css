@@ -1,6 +1,6 @@
 /************************************************
 
-Copyright 2014 Intelfinity Web Service
+Copyright 2014 Intelfinity: Website Service Section 
 
 Developer: Mahir Kothary GH: (@mahirk)
 
@@ -10,7 +10,7 @@ MIT License
 
 body {
     width: 99%;
-    background-image: url('http://subtlepatterns.com/patterns/cream_pixels.png');
+    background-image: url('../Images/cream_pixels.png');
     font-family: "trebuchet ms", sans-serif, calibri;
     overflow-x:hidden;
 }
@@ -53,6 +53,9 @@ Top Menu
     font-family:'Bank-Gothic';
     color: #000;
     text-align:center;
+}
+a#lefttop{
+    text-decoration:none;
 }
 
 #righttop{
@@ -331,3 +334,11 @@ textarea:focus, input:focus {
     padding: 10px;
 }
 
+/*************************************
+News
+**************************************/
+
+#updates .box {
+    width: 70%;
+    padding: 10px;
+}
