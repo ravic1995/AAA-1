@@ -206,6 +206,9 @@ Main
     font-weight:normal;
 }
 
+#submenu li:after {
+    display:none !important;
+}
 /*****************************************
 Gallery Styles
 *****************************************/
@@ -274,7 +277,7 @@ label {
     display: block;
     text-align: left;
     padding: 15px 0 15px 0;
-    font-family:'Raleway', calibri;
+    font-family: calibri;
     font-size: 11pt;
 }
 
@@ -283,6 +286,7 @@ label {
 }
 input[type="text"]   {
     width:50%;
+    font-family: 'Open Sans', calibri;
     display:block;
     border: 1px solid #999;
     height: 20px;
@@ -301,6 +305,7 @@ input:not([type="text"]) {
 
 .message {
     width:75%;
+    font-family: 'Open Sans', calibri;
     display:block;
     border: 1px solid #999;
     height: 200px;
@@ -334,6 +339,13 @@ textarea:focus, input:focus {
     padding: 10px;
 }
 
+heading {
+    top: 10px;
+    font-size: 12pt;
+    font-weight:bold;
+    padding: 8px;
+    font-family:'Open Sans', calibri;
+}
 /*************************************
 News
 **************************************/
@@ -341,4 +353,31 @@ News
 #updates .box {
     width: 70%;
     padding: 10px;
+}
+
+/************************************
+About
+************************************/
+
+#about {
+    width: 85%;
+    padding: 30px 10px;
+}
+
+#about .head {
+    font-size: 14pt;
+    font-weight:bold;
+    font-family:'Open Sans', calibri;
+    text-align:center;
+    display:block;
+}
+
+#about .head hr {
+    width: 65%;
+    top: 10px;
+}
+
+#about #info {
+    font-family:'Open Sans', calibri;
+    margin: 30px 15px;
 }
